@@ -1,0 +1,102 @@
+**Research Report**
+
+---
+
+### 1. Research Question
+*What architecture is proposed in the paper and what results does it achieve?*
+
+---
+
+### 2. Key Findings  
+
+| Finding | Evidence |
+|---|---|
+| **Proposed architecture:** The paper introduces **Siamese‑PTM**, a Siamese Neural Network‑based model that uses **two encoders (dual‑encoder design)** instead of a single encoder for patient‑trial matching. | Evidence 1 (p.6, page_6_chunk_2); Evidence 4 (p.2, page_2_chunk_1) |
+| **Coarse‑grained encoder:** Implemented as a **multilayer perceptron (MLP)** with **batch‑normalization** and **ReLU** activations. | Evidence 2 (p.3, page_3_chunk_5) |
+| **Fine‑grained encoder options:** The model experiments with **LSTM, GRU, Bi‑LSTM, Bi‑GRU, their attention‑augmented variants (LSTM‑ATT, GRU‑ATT, Bi‑LSTM‑ATT, Bi‑GRU‑ATT), CNN, and CNN‑LSTM**. | Evidence 2 (p.3, page_3_chunk_5) |
+| **Best fine‑grained encoder:** **LSTM** achieves the highest performance with an **F1 score of 0.92**. | Evidence 3 (p.6, page_6_chunk_1) |
+| **Attention‑augmented gains:** <br>• **GRU‑ATT** reaches **0.91 F1** (≈6 % boost over vanilla GRU). <br>• **Bi‑LSTM‑ATT** reaches **0.88 F1** (≈2 % boost over vanilla Bi‑LSTM). | Evidence 1 (p.6, page_6_chunk_2) |
+| **CNN‑based results:** **CNN** attains **0.88 F1** (comparable to attention‑augmented LSTM models); **CNN‑LSTM** attains **0.86 F1** (comparable to Bi‑LSTM and GRU). | Evidence 1 (p.6, page_6_chunk_2) |
+| **Baseline comparison:** Siamese‑PTM’s best F1 (0.92) is **significantly higher** than the rule‑based **Random Forest baseline (0.66 F1)**, representing a **≈40 % performance gain** (p‑value = 0.006). | Evidence 3 (p.6, page_6_chunk_1); Evidence 1 (p.6, page_6_chunk_2) |
+| **Single‑encoder comparison:** Siamese‑PTM **outperforms seven out of ten** single‑encoder counterparts. | Evidence 1 (p.6, page_6_chunk_2) |
+| **Fusion strategy:** Among methods for merging the two encoder outputs, **concatenation** yields the best results, followed by **addition**; **mean** and **multiplication** perform worse. | Evidence 3 (p.6, page_6_chunk_1) |
+| **Embedding initialization:** The model’s EHR and criteria embeddings are **initialized with pretrained LLaMA 2 embeddings**, enhancing encoding capability. | Evidence 4 (p.2, page_2_chunk_1) |
+
+---
+
+### 3. Evidence and Verification  
+
+All ten claims extracted from the paper have been **verified as SUPPORTED** by the internal verification process:
+
+| Claim | Verification Status | Supporting Evidence |
+|---|---|---|
+| 1. Siamese‑PTM dual‑encoder design | SUPPORTED | Evidence 1, Evidence 4 |
+| 2. Coarse‑grained MLP encoder | SUPPORTED | Evidence 2 |
+| 3. Fine‑grained encoder variety | SUPPORTED | Evidence 2 |
+| 4. LSTM best F1 = 0.92 | SUPPORTED | Evidence 3 |
+| 5. Attention‑augmented improvements | SUPPORTED | Evidence 1 |
+| 6. CNN / CNN‑LSTM results | SUPPORTED | Evidence 1 |
+| 7. Outperformance of Random Forest (0.66 F1) with 40 % gain, p = 0.006 | SUPPORTED | Evidence 3, Evidence 1 |
+| 8. Outperforms 7/10 single‑encoder models | SUPPORTED | Evidence 1 |
+| 9. Fusion method effectiveness | SUPPORTED | Evidence 3 |
+|10. LLaMA 2 embedding initialization | SUPPORTED | Evidence 4 |
+
+No contradictory or missing citations were identified.
+
+---
+
+### 4. Unsupported or Uncertain Claims  
+*None.* All statements relevant to the research question are directly supported by the provided evidence.
+
+---
+
+### 5. Sources  
+
+| Source | Description |
+|---|---|
+| **Evidence 1** – `data/research_paper.pdf`, p. 6, `page_6_chunk_2` | Performance numbers for attention variants, CNN, CNN‑LSTM, and comparison with single‑encoder models. |
+| **Evidence 2** – `data/research_paper.pdf`, p. 3, `page_3_chunk_5` | Architecture description: coarse‑grained MLP and list of fine‑grained encoders. |
+| **Evidence 3** – `data/research_paper.pdf`, p. 6, `page_6_chunk_1` | Fine‑grained results (LSTM 0.92 F1), baseline Random Forest (0.66 F1), statistical significance, and fusion analysis. |
+| **Evidence 4** – `data/research_paper.pdf`, p. 2, `page_2_chunk_1` | Overview of Siamese vs. single encoder, and LLaMA 2 embedding initialization. |
+
+---
+
+### 6. Conclusion  
+
+The paper proposes **Siamese‑PTM**, a dual‑encoder Siamese Neural Network for patient‑trial matching. Its architecture combines a **coarse‑grained MLP** with a variety of **fine‑grained token‑level encoders**, the best of which (LSTM) attains an **F1 score of 0.92**. This performance **exceeds** a rule‑based Random Forest baseline (0.66 F1) by **≈40 %** (statistically significant, p = 0.006) and **outperforms seven of ten** single‑encoder alternatives. Fusion via **concatenation** and initialization with **pre‑trained LLaMA 2 embeddings** further boost results. The evidence fully supports these findings; no unsupported claims remain.
+
+--- CITATION VALIDATION REPORT ---
+
+Citation Validation Report
+
+Total claims: 10 | SUPPORTED: 10 | PARTIALLY SUPPORTED: 0 | NOT SUPPORTED: 0 | Invalid citations: 0 | Missing citations: 0
+
+Claim 1: SUPPORTED
+  Valid citations: Evidence 1 (data/research_paper.pdf, page 6, page_6_chunk_2); Evidence 4 (data/research_paper.pdf, page 2, page_2_chunk_1)
+
+Claim 2: SUPPORTED
+  Valid citations: Evidence 2 (data/research_paper.pdf, page 3, page_3_chunk_5)
+
+Claim 3: SUPPORTED
+  Valid citations: Evidence 2 (data/research_paper.pdf, page 3, page_3_chunk_5)
+
+Claim 4: SUPPORTED
+  Valid citations: Evidence 3 (data/research_paper.pdf, page 6, page_6_chunk_1)
+
+Claim 5: SUPPORTED
+  Valid citations: Evidence 1 (data/research_paper.pdf, page 6, page_6_chunk_2)
+
+Claim 6: SUPPORTED
+  Valid citations: Evidence 1 (data/research_paper.pdf, page 6, page_6_chunk_2)
+
+Claim 7: SUPPORTED
+  Valid citations: Evidence 3 (data/research_paper.pdf, page 6, page_6_chunk_1); Evidence 1 (data/research_paper.pdf, page 6, page_6_chunk_2)
+
+Claim 8: SUPPORTED
+  Valid citations: Evidence 1 (data/research_paper.pdf, page 6, page_6_chunk_2)
+
+Claim 9: SUPPORTED
+  Valid citations: Evidence 3 (data/research_paper.pdf, page 6, page_6_chunk_1)
+
+Claim 10: SUPPORTED
+  Valid citations: Evidence 4 (data/research_paper.pdf, page 2, page_2_chunk_1)
