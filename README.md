@@ -6,7 +6,7 @@ sources, verifying every claim against its evidence, self-correcting when eviden
 insufficient, and producing fully traceable, citation-grounded reports — with a polished
 **multi-step wizard web UI** (Streamlit).
 
-> **Try it live:** [Streamlit Community Cloud link below after deployment]
+> **🚀 Try it live:** [autonomous-research-agent-4htnpcgk7ukhzwf8mrmluj.streamlit.app](https://autonomous-research-agent-4htnpcgk7ukhzwf8mrmluj.streamlit.app/)
 
 ---
 
